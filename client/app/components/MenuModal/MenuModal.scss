@@ -1,0 +1,13 @@
+@use "~/styles/helpers" as *;
+
+.menu-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: min(rem(320), 100vw);
+  height: 100dvh;
+  backdrop-filter: blur(rem(10));
+  background: rgba(164, 132, 97, 0.17);
+  padding-top: rem(150);
+}

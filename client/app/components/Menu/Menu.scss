@@ -1,0 +1,38 @@
+@use "~/styles/helpers" as *;
+
+.menu {
+  padding: rem(30) rem(50);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.11);
+
+  @include tablet {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  @include desktop {
+    padding: rem(20) rem(30);
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: rem(25);
+
+    @include tablet {
+      flex-direction: column;
+      row-gap: rem(18);
+    }
+  }
+
+  &__link {
+    @include desktop {
+      font-size: rem(20);
+    }
+
+    @include hover(false) {
+      opacity: 0.6;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "~/styles/helpers" as *;
+
+.header {
+  padding-block: rem(50);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  @include desktop {
+    padding-block: rem(30);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

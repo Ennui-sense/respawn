@@ -1,0 +1,15 @@
+@use "./../helpers" as *;
+
+:root {
+  --color-light: #fff;
+
+  --font-family-accent: "RomilePersonalUse", sans-serif;
+  --font-family-base: "Montserrat", sans-serif;
+
+  --container-width: #{rem(1800)};
+  --container-padding-x: #{rem(20)};
+
+  --border-radius: #{rem(50)};
+
+  --transition-duration: 0.25s;
+}
