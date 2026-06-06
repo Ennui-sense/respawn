@@ -20,7 +20,7 @@
     transition-duration: var(--transition-duration);
   }
 
-  @include hover(false) {
+  @include hover {
     &::after {
       opacity: 1;
     }

@@ -5,9 +5,46 @@
   top: 0;
   right: 0;
   z-index: 100;
-  width: min(rem(320), 100vw);
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   backdrop-filter: blur(rem(10));
   background: rgba(164, 132, 97, 0.17);
-  padding-top: rem(150);
+  padding-block: rem(150) rem(70);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__contacts {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: rem(12);
+  }
+
+  &__socials {
+    display: flex;
+    column-gap: rem(12);
+  }
+
+  &__button {
+    @include button-reset;
+
+    position: absolute;
+    top: rem(25);
+    right: rem(25);
+
+    & svg * {
+      stroke: var(--color-gray);
+    }
+
+    &:active {
+      & svg * {
+        stroke: var(--color-light);
+      }
+    }
+  }
 }

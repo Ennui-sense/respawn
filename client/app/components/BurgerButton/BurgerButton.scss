@@ -5,5 +5,9 @@
   @include flex-center(true);
   @include button-reset;
 
-  color: var(--color-light)
+  color: var(--color-light);
+
+  &:active {
+    opacity: 0.6;
+  }
 }

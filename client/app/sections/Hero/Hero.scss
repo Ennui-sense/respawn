@@ -3,7 +3,7 @@
 .hero {
   display: flex;
   justify-content: center;
-  padding-top: rem(240);
+  padding-top: rem(400);
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -44,7 +44,7 @@
 
       &--1 {
         top: 50%;
-        left: -25%;
+        left: -20%;
         transform: translateY(-50%);
 
         @include desktop {
@@ -60,7 +60,7 @@
 
       &--3 {
         top: 50%;
-        right: -25%;
+        right: -20%;
         transform: translateY(-50%);
 
         @include desktop {

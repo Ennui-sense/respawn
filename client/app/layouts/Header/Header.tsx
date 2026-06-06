@@ -16,17 +16,21 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 64rem)")
+    const mediaQuery = window.matchMedia("(max-width: 64rem)");
 
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsTablet(event.matches)
+    const handleChange = () => {
+      setIsTablet(mediaQuery.matches);
+
+      if (!mediaQuery.matches) {
+        setIsOpen(false);
+      }
     }
 
-    setIsTablet(mediaQuery.matches)
+    handleChange();
 
-    mediaQuery.addEventListener("change", (event) => handleChange(event));
+    mediaQuery.addEventListener("change", handleChange);
 
-    return () => mediaQuery.removeEventListener("change", (event) => handleChange(event))
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, [])
 
   return (
