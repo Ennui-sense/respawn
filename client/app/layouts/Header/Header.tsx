@@ -10,31 +10,40 @@ import { useState, useEffect } from "react";
 import MenuModal from "~/components/MenuModal/MenuModal";
 
 import { AnimatePresence } from "motion/react"
+import clsx from "clsx";
+import useMediaQuery from "~/hooks/useMediaQuery";
 
 const Header = () => {
-  const [isTablet, setIsTablet] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isChanged, setIsChanged] = useState<boolean>(false);
+  const isTablet = useMediaQuery("tablet");
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 64rem)");
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
 
-    const handleChange = () => {
-      setIsTablet(mediaQuery.matches);
-
-      if (!mediaQuery.matches) {
-        setIsOpen(false);
+      if (isChanged === isScrolled) {
+        return;
       }
+
+      setIsChanged(isScrolled);
     }
 
-    handleChange();
+    handleScroll();
 
-    mediaQuery.addEventListener("change", handleChange);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isChanged])
+
+  useEffect(() => {
+    if (!isTablet) {
+      setIsOpen(false);
+    }
+  }, [isTablet])
 
   return (
-    <header className="header">
+    <header className={clsx("header", { "header--changed": isChanged })}>
       <div className="header__inner container">
         <Logo className="header__logo" imageSrc={LogoImageSrc} />
         {isTablet ? <BurgerButton openModal={() => setIsOpen(true)} /> : <Menu className="header__menu" />}

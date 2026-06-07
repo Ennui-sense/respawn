@@ -8,8 +8,16 @@
   width: 100%;
   z-index: 100;
 
+  &--changed {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
   @include desktop {
     padding-block: rem(30);
+  }
+
+  @include mobile {
+    padding-block: rem(15);
   }
 
   &__inner {

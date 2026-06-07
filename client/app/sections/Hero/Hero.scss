@@ -12,10 +12,6 @@
     padding-top: rem(200);
   }
 
-  @include mobile {
-    padding-top: rem(150);
-  }
-
   &__bg {
     position: absolute;
     inset: 0;
